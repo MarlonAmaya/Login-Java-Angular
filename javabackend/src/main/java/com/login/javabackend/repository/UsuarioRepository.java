@@ -1,4 +1,4 @@
-package com.login.javabackend.repository;
+/*package com.login.javabackend.repository;
 
 import java.util.Optional;
 
@@ -11,3 +11,4 @@ import com.login.javabackend.model.Usuario;
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
     Optional<Usuario> findByWalletAddress(String walletAddress);
 }
+*/

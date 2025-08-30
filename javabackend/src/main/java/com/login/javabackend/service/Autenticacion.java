@@ -1,4 +1,4 @@
-package com.login.javabackend.service;
+/*package com.login.javabackend.service;
 
 import java.util.Optional;
 
@@ -26,4 +26,4 @@ public class Autenticacion {
         
         throw new RuntimeException("Credenciales invalidas");
     }
-}
+}*/

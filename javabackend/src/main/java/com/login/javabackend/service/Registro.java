@@ -1,4 +1,4 @@
-package com.login.javabackend.service;
+/*package com.login.javabackend.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,4 +24,4 @@ public class Registro {
 
         throw new RuntimeException("El usuario ya existe");
     }
-}
+}*/

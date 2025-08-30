@@ -1,4 +1,4 @@
-package com.login.javabackend.model;
+/*package com.login.javabackend.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -39,4 +39,4 @@ public class Usuario {
     public void setFraseSemilla(String fraseSemilla) {
         this.fraseSemilla = fraseSemilla;
     }
-}
+}*/

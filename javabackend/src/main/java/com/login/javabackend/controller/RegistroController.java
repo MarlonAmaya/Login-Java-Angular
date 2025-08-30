@@ -1,4 +1,4 @@
-package com.login.javabackend.controller;
+/*package com.login.javabackend.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,4 +26,4 @@ public class RegistroController {
 
         return ResponseEntity.ok(respuesta);
     }
-}
+}*/

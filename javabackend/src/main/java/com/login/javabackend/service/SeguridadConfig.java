@@ -1,4 +1,4 @@
-package com.login.javabackend.service;
+/*package com.login.javabackend.service;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,4 +18,4 @@ public class SeguridadConfig {
             );
         return http.build();
     }
-}
+}*/
