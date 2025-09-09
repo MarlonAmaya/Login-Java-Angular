@@ -1,0 +1,13 @@
+/home/marlon/Proyectos/Login/javabackend/src/main/java/com/login/javabackend/JavabackendApplication.java
+/home/marlon/Proyectos/Login/javabackend/src/main/java/com/login/javabackend/controller/AuntenticacionController.java
+/home/marlon/Proyectos/Login/javabackend/src/main/java/com/login/javabackend/controller/AuthController.java
+/home/marlon/Proyectos/Login/javabackend/src/main/java/com/login/javabackend/controller/RegistroController.java
+/home/marlon/Proyectos/Login/javabackend/src/main/java/com/login/javabackend/dto/NonceResponse.java
+/home/marlon/Proyectos/Login/javabackend/src/main/java/com/login/javabackend/dto/SiweRequest.java
+/home/marlon/Proyectos/Login/javabackend/src/main/java/com/login/javabackend/model/Usuario.java
+/home/marlon/Proyectos/Login/javabackend/src/main/java/com/login/javabackend/repository/UsuarioRepository.java
+/home/marlon/Proyectos/Login/javabackend/src/main/java/com/login/javabackend/service/Autenticacion.java
+/home/marlon/Proyectos/Login/javabackend/src/main/java/com/login/javabackend/service/EthereumVerifier.java
+/home/marlon/Proyectos/Login/javabackend/src/main/java/com/login/javabackend/service/NonceService.java
+/home/marlon/Proyectos/Login/javabackend/src/main/java/com/login/javabackend/service/Registro.java
+/home/marlon/Proyectos/Login/javabackend/src/main/java/com/login/javabackend/service/SeguridadConfig.java

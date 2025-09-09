@@ -5,9 +5,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import {ethers} from 'ethers';
-import {SiweMessage} from "siwe";
-import { RegisterService } from '../../service/register-service';
+import { HDNodeWallet } from 'ethers';
+import { Share } from '../../service/share';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -50,6 +50,8 @@ export class Login implements OnInit {
     }
   }*/
 
+  constructor(private share: Share, private router: Router){}
+
   loginForm!: FormGroup;
 
   ngOnInit(): void {
@@ -60,39 +62,41 @@ export class Login implements OnInit {
 
   async submit(){
     //Pide y recibe nonce del backend
-    const {nonce} = await (await (fetch("https://localhost:8080/auth/nonce"))).json();
-    console.log("Llegó al primer fetch");
+    const {nonce} = await (await (fetch("http://localhost:8080/auth/nonce", {
+      credentials: "include"
+    }))).json();
 
-    let wallet = ethers.Wallet.fromPhrase(this.loginForm.value);
+    const wallet = HDNodeWallet.fromPhrase(this.loginForm.value.semilla);
+    console.log(wallet.address);
 
     //Arma el mensaje firmado que va a mandar al backend
-    const domain = window.location.host;
-    const address = wallet.address;
-    const chainID = 1;
-
-    const message = new SiweMessage({
-      domain,
-      address,
+    //Sólo mandar el mensaje como json; que el backend se encargue de mapearlo al objeto correspondiente
+    const messageObj = {
+      address: wallet.address,
+      chainId: 1,
+      domain: window.location.host,
+      nonce: nonce,
       statement: "Iniciar sesión con Ethereum",
       uri: window.location.origin,
-      version: "1",
-      chainId: chainID,
-      nonce,
-      issuedAt: new Date().toISOString(),
-    });
+      version: "1"      
+    };
 
     //Envia el mensaje firmado al backend para verificar y recibe una respuesta o un DID
-    const signature = await wallet.signMessage(message.prepareMessage());
-    const verify = await fetch("https://localhost:8080/auth/verify", {
+    const message = JSON.stringify(messageObj);//Convertir el objeto message en string antes de mandarlo al backend
+    console.log(message);
+    const signature = await wallet.signMessage(message);
+    const verify = await fetch("http://localhost:8080/auth/verify", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       credentials: "include",
       body: JSON.stringify({message, signature})
     });
-    console.log("Llegó al segundo fetch");
 
     const data = await verify.json();
     
+    this.share.setData(data.userDid);
     console.log(data);
+
+    this.router.navigate(["/vc"]);
   }
 }

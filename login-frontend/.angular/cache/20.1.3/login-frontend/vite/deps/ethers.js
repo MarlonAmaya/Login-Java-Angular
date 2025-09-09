@@ -4,7 +4,7 @@ import {
   __spreadProps,
   __spreadValues,
   __superGet
-} from "./chunk-XEPZOUMX.js";
+} from "./chunk-35ENWJA4.js";
 
 // node_modules/ethers/lib.esm/ethers.js
 var ethers_exports = {};

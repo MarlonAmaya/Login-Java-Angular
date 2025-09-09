@@ -1,5 +1,6 @@
 package com.login.javabackend.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,7 @@ import jakarta.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping("/auth")
+@CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
 public class AuthController {
     private final NonceService nonceService;
 
@@ -41,8 +43,8 @@ public class AuthController {
         String signature = req.getSignature();
 
         //Verificando que venga el mismo nonce que está registrado en la sesión
-        if (!message.contains("Nonce: " + nonce)) {
-            return "Nonce inválido";
+        if (!nonceService.consumeNonce(nonce)) {
+            return "Nonce inválido o ya fue utilizado";
         }
 
         //Recuperar address de la firma

@@ -1,0 +1,35 @@
+<form [formGroup]="vcForm" (ngSubmit)="submit()">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Genere una Credencial Verificable</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+
+            <p>
+                <mat-form-field>
+                    <mat-label>Tipo de credencial</mat-label>
+                    <input matInput formControlName="type" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Nombre de credencial</mat-label>
+                    <input matInput formControlName="fieldName" required>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <mat-label>Valor</mat-label>
+                    <input matInput formControlName="fieldValue">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>DID del holder</mat-label>
+                    <input matInput formControlName="holderId" required>
+                </mat-form-field>
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!vcForm.valid">
+                Generar VC
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</form>
