@@ -8,35 +8,25 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="Wallets")
+@Table(name="Usuarios")
 public class Usuario {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
     @Column(unique=true)
-    private String walletAddress;
-    private String fraseSemilla;
+    private String DID;
 
     public Usuario(){}
-
-    public Usuario(String walletAddress, String fraseSemilla){
-        this.walletAddress = walletAddress;
-        this.fraseSemilla = fraseSemilla;
-    }
 
     public Integer getId() {
         return id;
     }
-    public String getWalletAddress() {
-        return walletAddress;
+
+    public String getDID() {
+        return this.DID;
     }
-    public void setWalletAddress(String walletAddress) {
-        this.walletAddress = walletAddress;
-    }
-    public String getFraseSemilla() {
-        return fraseSemilla;
-    }
-    public void setFraseSemilla(String fraseSemilla) {
-        this.fraseSemilla = fraseSemilla;
+
+    public void setDID(String DID) {
+        this.DID = DID;
     }
 }*/

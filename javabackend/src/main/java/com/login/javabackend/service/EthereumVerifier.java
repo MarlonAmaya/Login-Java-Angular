@@ -1,12 +1,12 @@
 package com.login.javabackend.service;
 
-import org.web3j.crypto.Keys;
-import org.web3j.crypto.Sign;
-import org.web3j.utils.Numeric;
-
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+
+import org.web3j.crypto.Keys;
+import org.web3j.crypto.Sign;
+import org.web3j.utils.Numeric;
 
 public class EthereumVerifier {
     public static String recoverAddress(String message, String signatureHex) throws Exception {

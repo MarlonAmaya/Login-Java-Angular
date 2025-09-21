@@ -1,0 +1,4 @@
+Añadir la interacción de la API
+Estándar criptográfico (especificar)
+Agregar estándar de API, estándar de nodo.
+Explicar cada proceso con todo detalle posible (explicación inductiva)

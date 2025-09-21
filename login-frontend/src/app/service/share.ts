@@ -4,9 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class Share {
-  private data!: string;
+  private data!: any;
   
-  setData(data: string){
+  setData(data: any){
     this.data = data;
   }
 

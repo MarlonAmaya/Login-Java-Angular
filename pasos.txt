@@ -1,0 +1,3 @@
+mandar saldo a la wallet (se puede usar una wallet quemada con saldo)
+registrar did en blockchain (consume un poco de saldo)
+login verifica si el did aparece en la blockchain

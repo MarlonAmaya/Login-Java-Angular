@@ -18,6 +18,7 @@ import jakarta.servlet.http.HttpSession;
 @RequestMapping("/auth")
 @CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
 public class AuthController {
+
     private final NonceService nonceService;
 
     public AuthController(NonceService nonceService) {
@@ -36,6 +37,8 @@ public class AuthController {
     //Frontend regresa mensaje nonce con firma
     @PostMapping("/verify")
     public Object verifyLogin(@RequestBody SiweRequest req, HttpSession session) throws Exception {
+        
+        //Viendo si un nonce ha sido asignado a la sesión
         String nonce = (String) session.getAttribute("nonce");
         if (nonce == null) return "No nonce en sesión";
 
@@ -54,6 +57,8 @@ public class AuthController {
         if (!message.toLowerCase().contains(recovered.toLowerCase())) {
             return "Firma inválida";
         }
+
+        //Comprobar
 
         //Construir DID
         String did = "did:pkh:eip155:1:" + recovered;
